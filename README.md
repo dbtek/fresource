@@ -18,13 +18,13 @@
 </div>
 <br/>
 <div align="center">
-  All in one client for your REST API under 1kB.
+  All in one client for your REST API under 1kB. 
 </div>
 
 ## Install
 With npm:
 ```bash
-$ npm i fresource
+$ npm i fresource --save
 ```
 
 Via CDN:
