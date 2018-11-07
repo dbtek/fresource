@@ -40,12 +40,12 @@ var Users = fresource('/api/users/:id?sort=:sort')
 
 Users.get({ sort: 'name' }) // will fetch /api/users?sort=name
   .then(result => {
-    user = result
+    var users = result
   })
 
 Users.get({ id: 1 }) // will fetch /api/users/1
   .then(result => {
-    user = result
+    var user = result
   })
 ```
 
