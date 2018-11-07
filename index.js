@@ -1,5 +1,5 @@
 var rewritePath = require('./rewrite')
-var { fetch } = global
+var { fetch } = global
 
 module.exports = fresource
 
