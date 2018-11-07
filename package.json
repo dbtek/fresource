@@ -21,8 +21,10 @@
   "devDependencies": {
     "browserify": "^16.2.3",
     "codecov": "^3.1.0",
+    "eslint-config-standard": "^12.0.0",
     "istanbul": "^0.4.5",
     "sinon": "^7.1.1",
+    "standard": "^12.0.1",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1",
     "uglifyify": "^5.0.1"
