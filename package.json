@@ -1,0 +1,35 @@
+{
+  "name": "fresource",
+  "version": "0.1.0",
+  "description": "A full featured Rest API client around window.fetch to provide idiomatic interaction.",
+  "keywords": [
+    "rest",
+    "api",
+    "client",
+    "zero-dependency",
+    "tiny",
+    "micro",
+    "fetch",
+    "ajax",
+    "resource"
+  ],
+  "main": "index.js",
+  "repository": "https://github.com/dbtek/fresource",
+  "author": "Ismail Demirbbilek <ce.demirbilek@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "codecov": "^3.1.0",
+    "istanbul": "^0.4.5",
+    "sinon": "^7.1.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1",
+    "uglifyify": "^5.0.1"
+  },
+  "scripts": {
+    "test": "istanbul cover test.js | tap-spec",
+    "upload-coverage": "codecov",
+    "build": "browserify index.js -o dist/fresource.js -g uglifyify --standalone fresource"
+  }
+}
