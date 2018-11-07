@@ -21,7 +21,7 @@
   All in one client for your REST API under 1kB.
 </div>
 
-### Install
+## Install
 With npm:
 ```bash
 $ npm i fresource
@@ -32,7 +32,7 @@ Via CDN:
 <script src="https://unpkg.com/fresource/dist/fresource.js"></script>
 ```
 
-### Usage
+## Usage
 ```js
 var fresource = require('fresource')
 
@@ -49,7 +49,7 @@ Users.get({ id: 1 }) // will fetch /api/users/1
   })
 ```
 
-### API
+## API
 
 **resource = fresource(path)**  
 Initialize a resource with a path / url.
@@ -66,8 +66,8 @@ Fires a PUT request with given parameters. Rewrite applies here too. Object with
 **resource.delete(params)**  
 Fires a DELETE request with given parameters. Rewrite applies here too.
 
-### Author
+## Author
 Ismail Demirbilek [@dbtek](https://twitter.com/dbtek)
 
-### License
+## License
 MIT
