@@ -57,7 +57,7 @@ Initialize a resource with a path / url.
 **resource.get(params)**  
 Fires a GET request with given parameters. Rewrites all path / query variables (like: `:key`) with properties of `params` object.
 
-**resource.post(params)**  
+**resource.save(params)**  
 Fires a POST request with given parameters. Rewrite applies here too. Object with residual properties will be posted as body.
 
 **resource.update(params)**  
