@@ -59,11 +59,11 @@ Fetches a `GET` request with given parameters.
 Returns promise.
 
 **resource.save(params)**  
-Sends a `POST` request with given parameters. Residual parameters will be posted in body.  
+Sends a `POST` request with given parameters. Residual parameters that are not used in url will be posted in body.  
 Returns promise.
 
 **resource.update(params)**  
-Sends a `PUT` request with given parameters. Residual parameters will be posted in body.  
+Sends a `PUT` request with given parameters. Residual parameters that are not used in url will be posted in body.  
 Returns promise.
 
 **resource.delete(params)**  
