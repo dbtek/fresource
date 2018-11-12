@@ -52,7 +52,7 @@ Users.get({ id: 1 }) // will fetch /api/users/1
 ## API
 
 **Collection = fresource(path)**  
-Initialize a resource with a path / url. Path should include all path / query param varibles like `:key`.
+Initialize a resource with a path / url. Path should include all path / query parameter variables like `:key`.
 
 **Collection.get(params)**  
 Fetches a `GET` request with given parameters.  
