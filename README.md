@@ -52,19 +52,23 @@ Users.get({ id: 1 }) // will fetch /api/users/1
 ## API
 
 **resource = fresource(path)**  
-Initialize a resource with a path / url.
+Initialize a resource with a path / url. Path should include all path / query param varibles like `:key`.
 
 **resource.get(params)**  
-Fires a GET request with given parameters. Rewrites all path / query variables (like: `:key`) with properties of `params` object.
+Fetches a `GET` request with given parameters.  
+Returns promise.
 
 **resource.save(params)**  
-Fires a POST request with given parameters. Rewrite applies here too. Object with residual properties will be posted as body.
+Sends a `POST` request with given parameters. Residual parameters will be posted in body.  
+Returns promise.
 
 **resource.update(params)**  
-Fires a PUT request with given parameters. Rewrite applies here too. Object with residual properties will be posted as body.
+Sends a `PUT` request with given parameters. Residual parameters will be posted in body.  
+Returns promise.
 
 **resource.delete(params)**  
-Fires a DELETE request with given parameters. Rewrite applies here too.
+Sends a `DELETE` request with given parameters.  
+Returns promise.
 
 ## Author
 Ismail Demirbilek [@dbtek](https://twitter.com/dbtek)
