@@ -45,3 +45,19 @@ tape('should call fetch correctly', t => {
   t.true(fetch.calledWithExactly('/users/1', { method: 'DELETE' }), 'delete request')
   t.end()
 })
+
+tape('should work without query params', t => {
+  var path = '/books/:id'
+  var Books = fresource(path)
+  Books.get()
+  t.true(fetch.calledWithExactly('/books'), 'get request')
+  t.end()
+})
+
+tape('should work without any variable', t => {
+  var path = '/books'
+  var Books = fresource(path)
+  Books.get()
+  t.true(fetch.lastCall.lastArg === '/books', 'get request')
+  t.end()
+})
