@@ -51,22 +51,22 @@ Users.get({ id: 1 }) // will fetch /api/users/1
 
 ## API
 
-**resource = fresource(path)**  
+**Collection = fresource(path)**  
 Initialize a resource with a path / url. Path should include all path / query param varibles like `:key`.
 
-**resource.get(params)**  
+**Collection.get(params)**  
 Fetches a `GET` request with given parameters.  
 Returns promise.
 
-**resource.save(params)**  
+**Collection.save(params)**  
 Sends a `POST` request with given parameters. Residual parameters that are not used in url will be posted in body.  
 Returns promise.
 
-**resource.update(params)**  
+**Collection.update(params)**  
 Sends a `PUT` request with given parameters. Residual parameters that are not used in url will be posted in body.  
 Returns promise.
 
-**resource.delete(params)**  
+**Collection.delete(params)**  
 Sends a `DELETE` request with given parameters.  
 Returns promise.
 
