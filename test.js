@@ -18,6 +18,11 @@ tape('should rewrite path variables', t => {
   t.end()
 })
 
+tape('should rewrite inline variables', t => {
+  t.equal(rewrite('/users/user:id', { id: 1 }), '/users/user1', 'rewrite')
+  t.end()
+})
+
 tape('should remove unused variables', t => {
   t.equal(rewrite('/users/:id?sort=:orderBy'), '/users', 'rewrite w/o params')
   t.equal(rewrite('/users/:id?sort=:orderBy', {}), '/users', 'rewrite w/ params')

@@ -5,11 +5,11 @@ module.exports = function rewritePath (path, params = {}) {
   var parts = path.split('?')
 
   // rewrite path
-  var endpoint = parts[0].replace(/(\/)(:)(\w*|\d*)/g, (match, g, g1, g2) => {
+  var endpoint = parts[0].replace(/(\/:|:)(\w*|\d*)/g, (match, g1, g2) => {
     const value = params[g2]
     if (!value) return ''
     delete params[g2]
-    return g + value
+    return g1[0] === '/' ? `/${value}` : value
   })
 
   // reconstruct query params
