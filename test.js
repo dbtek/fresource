@@ -23,6 +23,11 @@ tape('should rewrite inline variables', t => {
   t.end()
 })
 
+tape('should not rewrite without keys', t => {
+  t.equal(rewrite('https://test', { }), 'https://test', 'rewrite')
+  t.end()
+})
+
 tape('should remove unused variables', t => {
   t.equal(rewrite('/users/:id?sort=:orderBy'), '/users', 'rewrite w/o params')
   t.equal(rewrite('/users/:id?sort=:orderBy', {}), '/users', 'rewrite w/ params')

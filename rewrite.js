@@ -6,6 +6,7 @@ module.exports = function rewritePath (path, params = {}) {
 
   // rewrite path
   var endpoint = parts[0].replace(/(\/:|:)(\w*|\d*)/g, (match, g1, g2) => {
+    if (!g2) return match
     const value = params[g2]
     if (!value) return ''
     delete params[g2]
