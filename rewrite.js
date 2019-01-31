@@ -1,12 +1,19 @@
 var { URLSearchParams } = global
 
 module.exports = function rewritePath (path, params = {}) {
-  // split path & query params
-  var parts = path.split('?')
+  var parts
+  var prefix = ''
+  try {
+    var url = new URL(path)
+    parts = [url.pathname, url.search.slice(1)]
+    prefix = url.origin
+  } catch (e) {
+    // split path & query params
+    parts = path.split('?')
+  }
 
   // rewrite path
   var endpoint = parts[0].replace(/(\/:|:)(\w*|\d*)/g, (match, g1, g2) => {
-    if (!g2) return match
     const value = params[g2]
     if (!value) return ''
     delete params[g2]
@@ -22,5 +29,5 @@ module.exports = function rewritePath (path, params = {}) {
     qparams.append(g, value)
   })
   var qparamsStr = qparams.toString()
-  return endpoint + (qparamsStr ? `?${qparamsStr}` : '')
+  return prefix + endpoint + (qparamsStr ? `?${qparamsStr}` : '')
 }

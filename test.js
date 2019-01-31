@@ -24,7 +24,12 @@ tape('should rewrite inline variables', t => {
 })
 
 tape('should not rewrite without keys', t => {
-  t.equal(rewrite('https://test', { }), 'https://test', 'rewrite')
+  t.equal(rewrite('https://test/users', { }), 'https://test/users', 'rewrite')
+  t.end()
+})
+
+tape('should not rewrite with port', t => {
+  t.equal(rewrite('http://test:3030/users', { }), 'http://test:3030/users', 'rewrite')
   t.end()
 })
 
