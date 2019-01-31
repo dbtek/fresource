@@ -73,6 +73,15 @@ tape('should work without any variable', t => {
   var path = '/books'
   var Books = fresource(path)
   Books.get()
-  t.true(fetch.lastCall.lastArg === '/books', 'get request')
+  t.equal(fetch.lastCall.args[0], '/books', 'get request')
+  t.end()
+})
+
+tape('should work with custom headers', t => {
+  var path = '/books'
+  var options = { headers: { 'authorization': 'bearer secret' } }
+  var Books = fresource(path, options)
+  Books.get()
+  t.equal(fetch.lastCall.lastArg, options, 'Expect headers to be present')
   t.end()
 })
