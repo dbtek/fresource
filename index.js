@@ -18,7 +18,7 @@ module.exports = fresource
 function fresource (path, options) {
   return {
     get (params, opts) {
-      return options ? fetch(rewritePath(path, params), { ...options, ...opts }) : fetch(rewritePath(path, params))
+      return fetch(rewritePath(path, params), { ...options, ...opts })
     },
     save (params, opts) {
       return fetch(rewritePath(path, params), { ...options, ...opts, method: 'POST', body: JSON.stringify(params) })
