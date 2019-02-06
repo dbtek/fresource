@@ -1,6 +1,6 @@
 {
   "name": "fresource",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A full featured Rest API client around window.fetch to provide idiomatic interaction.",
   "keywords": [
     "rest",
