@@ -17,17 +17,17 @@ module.exports = fresource
  */
 function fresource (path, options) {
   return {
-    get (params) {
-      return options ? fetch(rewritePath(path, params), options) : fetch(rewritePath(path, params))
+    get (params, opts) {
+      return options ? fetch(rewritePath(path, params), { ...options, ...opts }) : fetch(rewritePath(path, params))
     },
-    save (params) {
-      return fetch(rewritePath(path, params), { ...options, method: 'POST', body: JSON.stringify(params) })
+    save (params, opts) {
+      return fetch(rewritePath(path, params), { ...options, ...opts, method: 'POST', body: JSON.stringify(params) })
     },
-    update (params) {
-      return fetch(rewritePath(path, params), { ...options, method: 'PUT', body: JSON.stringify(params) })
+    update (params, opts) {
+      return fetch(rewritePath(path, params), { ...options, ...opts, method: 'PUT', body: JSON.stringify(params) })
     },
-    delete (params) {
-      return fetch(rewritePath(path, params), { ...options, method: 'DELETE' })
+    delete (params, opts) {
+      return fetch(rewritePath(path, params), { ...options, ...opts, method: 'DELETE' })
     }
   }
 }
