@@ -44,9 +44,14 @@ tape('should rewrite query params', t => {
   t.end()
 })
 
+tape('should rewrite array query params', t => {
+  t.equal(rewrite('/users/:id?sort=:orderBy', { orderBy: ['name', 'id'] }), '/users?sort=name&sort=id', 'rewrite')
+  t.end()
+})
+
 tape('should call fetch correctly', t => {
   Users.get()
-  t.true(fetch.calledWithExactly('/users'), 'get request')
+  t.true(fetch.calledWithExactly('/users', {}), 'get request')
 
   var params = { name: 'Ismail' }
   Users.save(params)
@@ -65,7 +70,7 @@ tape('should work without query params', t => {
   var path = '/books/:id'
   var Books = fresource(path)
   Books.get()
-  t.true(fetch.calledWithExactly('/books'), 'get request')
+  t.true(fetch.calledWithExactly('/books', {}), 'get request')
   t.end()
 })
 
@@ -82,6 +87,10 @@ tape('should work with custom headers', t => {
   var options = { headers: { 'authorization': 'bearer secret' } }
   var Books = fresource(path, options)
   Books.get()
-  t.equal(fetch.lastCall.lastArg, options, 'Expect headers to be present')
+  t.equal(JSON.stringify(fetch.lastCall.lastArg), JSON.stringify(options), 'Expect headers to be present')
+
+  var Notes = fresource('/notes')
+  Notes.get(null, options)
+  t.equal(JSON.stringify(fetch.lastCall.lastArg), JSON.stringify(options), 'Expect to work with headers on method arguments')
   t.end()
 })

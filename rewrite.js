@@ -25,8 +25,12 @@ module.exports = function rewritePath (path, params = {}) {
   ;('&' + parts[1]).replace(/&(\w*|\d*)=(:)(\w*|\d*)/g, (match, g, g1, g2) => {
     const value = params[g2]
     if (!value) return
+    if (Array.isArray(value)) {
+      value.forEach(val => qparams.append(g, val))
+    } else {
+      qparams.append(g, value)
+    }
     delete params[g2]
-    qparams.append(g, value)
   })
   var qparamsStr = qparams.toString()
   return prefix + endpoint + (qparamsStr ? `?${qparamsStr}` : '')
