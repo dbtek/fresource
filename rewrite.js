@@ -1,6 +1,7 @@
 var { URLSearchParams } = global
 
-module.exports = function rewritePath (path, params = {}) {
+module.exports = function rewritePath (path, _params = {}) {
+  var params = Object.assign({}, _params)
   var parts
   var prefix = ''
   try {
