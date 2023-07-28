@@ -17,21 +17,23 @@
   "repository": "https://github.com/dbtek/fresource",
   "author": "Ismail Demirbbilek <ce.demirbilek@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
+    "@types/sinon": "^10.0.15",
+    "@types/tape": "^5.6.0",
     "browserify": "^16.2.3",
     "codecov": "^3.1.0",
-    "eslint-config-standard": "^12.0.0",
     "istanbul": "^0.4.5",
     "sinon": "^7.1.1",
     "standard": "^12.0.1",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6",
     "uglifyify": "^5.0.1"
   },
   "scripts": {
     "test": "istanbul cover test.js | tap-spec",
     "upload-coverage": "codecov",
-    "build": "browserify index.js -o dist/fresource.js -g uglifyify --standalone fresource"
+    "build": "tsc --project tsconfig.build.json"
   }
 }

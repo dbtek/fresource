@@ -43,7 +43,7 @@ Users.get({ sort: 'name' }) // will fetch /api/users?sort=name
     var users = result
   })
 
-Users.get({ id: 1 }) // will fetch /api/users/1
+Users.get({ id: '1' }) // will fetch /api/users/1
   .then(result => {
     var user = result
   })

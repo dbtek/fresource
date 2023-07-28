@@ -1,13 +1,11 @@
-var rewritePath = require('./rewrite')
-var { fetch } = global
+import { rewritePath } from './rewrite';
 
-module.exports = fresource
+type Params = { [key: string]: string };
 
 /**
  * fresource gives access to rest apis in an idiomatic way.
  * @param {String} path URL or path to the resource.
  * @param {Object} options Options to be passed to fetch.
- * @returns {Object} resource
  * @example
  * var freseource = require('fresource')
  * var Users = fresource('/api/users/:id')
@@ -15,18 +13,18 @@ module.exports = fresource
  * Users.get({ id: 1 })          // will initiate a get request to `/api/users/1`
  * Users.save({ name: 'Jason' }) // will post { name: 'Jason' } to `/api/users/`
  */
-function fresource (path, options) {
+export function fresource(path: string, options: RequestInit = {}) {
   return {
-    get (params, opts) {
+    get(params?: Params | null, opts?: RequestInit) {
       return fetch(rewritePath(path, params), Object.assign({}, options, opts))
     },
-    save (params, opts) {
+    save(params?: Params | null, opts?: RequestInit) {
       return fetch(rewritePath(path, params), Object.assign({}, options, opts, { method: 'POST', body: JSON.stringify(params) }))
     },
-    update (params, opts) {
+    update(params?: Params | null, opts?: RequestInit) {
       return fetch(rewritePath(path, params), Object.assign({}, options, opts, { method: 'PUT', body: JSON.stringify(params) }))
     },
-    delete (params, opts) {
+    delete(params?: Params | null, opts?: RequestInit) {
       return fetch(rewritePath(path, params), Object.assign({}, options, opts, { method: 'DELETE' }))
     }
   }
