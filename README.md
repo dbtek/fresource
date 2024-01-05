@@ -1,10 +1,5 @@
 <div align="center">
   <h1>f·resource</h1>
-  <!-- Build Status -->
-  <a href="https://travis-ci.org/dbtek/fresource">
-    <img src="https://img.shields.io/travis/dbtek/fresource/master.svg?style=flat-square"
-      alt="Build Status" />
-  </a>
   <!-- Test Coverage -->
   <a href="https://codecov.io/github/dbtek/fresource">
     <img src="https://img.shields.io/codecov/c/github/dbtek/fresource/master.svg?style=flat-square"
