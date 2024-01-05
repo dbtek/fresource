@@ -18,6 +18,10 @@ jobs:
           node-version: 20
       - run: yarn
       - run: yarn test
+      - uses: actions/upload-artifact@v2
+        with:
+          name: test-artifacts
+          path: ./coverage # upload coverage report for report-coverage job
 
   build:
     runs-on: ubuntu-latest
@@ -27,7 +31,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
+      - run: yarn
       - run: yarn build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: ./dist # upload build artifacts for coverage job
+
 
   report-coverage:
     needs: test
@@ -37,5 +47,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
+      - uses: actions/download-artifact@v2
+        with:
+          name: test-artifacts
+          path: ./coverage # download coverage report from test job
+      - run: yarn
       - run: yarn codecov
   
