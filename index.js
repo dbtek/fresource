@@ -11,9 +11,11 @@ module.exports = fresource
  * @example
  * var freseource = require('fresource')
  * var Users = fresource('/api/users/:id')
- * Users.get()                   // will initiate a get request to `/api/users`
- * Users.get({ id: 1 })          // will initiate a get request to `/api/users/1`
- * Users.save({ name: 'Jason' }) // will post { name: 'Jason' } to `/api/users/`
+ * Users.get()                             // will initiate request: `GET /api/users`
+ * Users.get({ id: 1 })                    // will initiate request: `GET /api/users/1`
+ * Users.save({ name: 'Jason' })           // will initiate request: `POST { name: 'Jason' } /api/users/`
+ * Users.update({ id: 1, name: 'Tyrell' }) // will initiate request: `PUT { name: 'Tyrell' } /api/users/1`
+ * Users.delete({ id: 1 })                 // will initiate request: `DELETE /api/users/1`
  */
 function fresource (path, options) {
   return {
