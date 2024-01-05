@@ -23,7 +23,7 @@
     "codecov": "^3.8.3",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
-    "istanbul": "^0.4.5",
+    "nyc": "^15.1.0",
     "sinon": "^17.0.1",
     "standard": "^17.1.0",
     "tap-spec": "^5.0.0",
@@ -31,7 +31,7 @@
     "uglifyify": "^5.0.2"
   },
   "scripts": {
-    "test": "istanbul cover tape -- *.spec.js | tap-spec",
+    "test": "nyc tape *.spec.js | tap-spec",
     "upload-coverage": "codecov",
     "build": "browserify index.js -o dist/fresource.js -g uglifyify --standalone fresource"
   }
