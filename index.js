@@ -28,6 +28,9 @@ function fresource (path, options) {
     update (params, opts) {
       return fetch(rewritePath(path, params), Object.assign({}, options, opts, { method: 'PUT', body: JSON.stringify(params) }))
     },
+    patch (params, opts) {
+      return fetch(rewritePath(path, params), Object.assign({}, options, opts, { method: 'PATCH', body: JSON.stringify(params) }))
+    },
     delete (params, opts) {
       return fetch(rewritePath(path, params), Object.assign({}, options, opts, { method: 'DELETE' }))
     }

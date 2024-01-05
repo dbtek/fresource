@@ -24,6 +24,10 @@ tape('should call fetch correctly', t => {
   Users.update(params)
   t.true(fetch.calledWithExactly('/users/1', { method: 'PUT', body: JSON.stringify(params) }), 'put request')
 
+  params = { name: 'Ismail D', id: 1 }
+  Users.patch(params)
+  t.true(fetch.calledWithExactly('/users/1', { method: 'PATCH', body: JSON.stringify(params) }), 'patch request')
+
   Users.delete({ id: 1 })
   t.true(fetch.calledWithExactly('/users/1', { method: 'DELETE' }), 'delete request')
   t.end()
