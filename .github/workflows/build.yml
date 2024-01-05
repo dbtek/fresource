@@ -65,4 +65,6 @@ jobs:
           path: ./coverage # download coverage report from test job
       - run: yarn
       - run: yarn codecov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   
