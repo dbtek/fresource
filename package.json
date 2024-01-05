@@ -31,7 +31,7 @@
     "uglifyify": "^5.0.2"
   },
   "scripts": {
-    "test": "istanbul cover test.js | tap-spec",
+    "test": "istanbul cover tape -- *.spec.js | tap-spec",
     "upload-coverage": "codecov",
     "build": "browserify index.js -o dist/fresource.js -g uglifyify --standalone fresource"
   }
