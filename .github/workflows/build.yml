@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: .yarn
+          key: dependency-cache
       - uses: actions/setup-node@v3
         with:
           node-version: 20
@@ -28,6 +32,10 @@ jobs:
     needs: test
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: .yarn
+          key: dependency-cache
       - uses: actions/setup-node@v3
         with:
           node-version: 20
@@ -44,6 +52,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: .yarn
+          key: dependency-cache
       - uses: actions/setup-node@v3
         with:
           node-version: 20
