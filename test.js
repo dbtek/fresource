@@ -1,17 +1,17 @@
-var tape = require('tape')
-var sinon = require('sinon')
-var { URLSearchParams } = require('url')
+const tape = require('tape')
+const sinon = require('sinon')
+const { URLSearchParams } = require('url')
 // expose modules to global
 global.URLSearchParams = URLSearchParams
 
-var fetch = sinon.fake.resolves()
+const fetch = sinon.fake.resolves()
 global.fetch = fetch
 
 // require module
-var rewrite = require('./rewrite')
-var fresource = require('./')
+const rewrite = require('./rewrite')
+const fresource = require('./')
 
-var Users = fresource('/users/:id?sort=:orderBy')
+const Users = fresource('/users/:id?sort=:orderBy')
 
 tape('should rewrite path variables', t => {
   t.equal(rewrite('/users/:id?sort=:orderBy', { id: 1 }), '/users/1', 'rewrite')
@@ -53,7 +53,7 @@ tape('should call fetch correctly', t => {
   Users.get()
   t.true(fetch.calledWithExactly('/users', {}), 'get request')
 
-  var params = { name: 'Ismail' }
+  let params = { name: 'Ismail' }
   Users.save(params)
   t.true(fetch.calledWithExactly('/users', { method: 'POST', body: JSON.stringify(params) }), 'post request')
 
@@ -67,29 +67,29 @@ tape('should call fetch correctly', t => {
 })
 
 tape('should work without query params', t => {
-  var path = '/books/:id'
-  var Books = fresource(path)
+  const path = '/books/:id'
+  const Books = fresource(path)
   Books.get()
   t.true(fetch.calledWithExactly('/books', {}), 'get request')
   t.end()
 })
 
 tape('should work without any variable', t => {
-  var path = '/books'
-  var Books = fresource(path)
+  const path = '/books'
+  const Books = fresource(path)
   Books.get()
   t.equal(fetch.lastCall.args[0], '/books', 'get request')
   t.end()
 })
 
 tape('should work with custom headers', t => {
-  var path = '/books'
-  var options = { headers: { 'authorization': 'bearer secret' } }
-  var Books = fresource(path, options)
+  const path = '/books'
+  const options = { headers: { authorization: 'bearer secret' } }
+  const Books = fresource(path, options)
   Books.get()
   t.equal(JSON.stringify(fetch.lastCall.lastArg), JSON.stringify(options), 'Expect headers to be present')
 
-  var Notes = fresource('/notes')
+  const Notes = fresource('/notes')
   Notes.get(null, options)
   t.equal(JSON.stringify(fetch.lastCall.lastArg), JSON.stringify(options), 'Expect to work with headers on method arguments')
   t.end()

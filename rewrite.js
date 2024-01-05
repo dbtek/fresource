@@ -1,11 +1,11 @@
-var { URLSearchParams } = global
+const { URLSearchParams } = global
 
 module.exports = function rewritePath (path, _params = {}) {
-  var params = Object.assign({}, _params)
-  var parts
-  var prefix = ''
+  const params = Object.assign({}, _params)
+  let parts
+  let prefix = ''
   try {
-    var url = new URL(path)
+    const url = new URL(path)
     parts = [url.pathname, url.search.slice(1)]
     prefix = url.origin
   } catch (e) {
@@ -14,7 +14,7 @@ module.exports = function rewritePath (path, _params = {}) {
   }
 
   // rewrite path
-  var endpoint = parts[0].replace(/(\/:|:)(\w*|\d*)/g, (match, g1, g2) => {
+  const endpoint = parts[0].replace(/(\/:|:)(\w*|\d*)/g, (match, g1, g2) => {
     const value = params[g2]
     if (!value) return ''
     delete params[g2]
@@ -22,7 +22,7 @@ module.exports = function rewritePath (path, _params = {}) {
   })
 
   // reconstruct query params
-  var qparams = new URLSearchParams()
+  const qparams = new URLSearchParams()
   ;('&' + parts[1]).replace(/&(\w*|\d*)=(:)(\w*|\d*)/g, (match, g, g1, g2) => {
     const value = params[g2]
     if (!value) return
@@ -33,6 +33,6 @@ module.exports = function rewritePath (path, _params = {}) {
     }
     delete params[g2]
   })
-  var qparamsStr = qparams.toString()
+  const qparamsStr = qparams.toString()
   return prefix + endpoint + (qparamsStr ? `?${qparamsStr}` : '')
 }
