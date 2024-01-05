@@ -1,6 +1,6 @@
 # This workflow will run tests using node and uploads coverage report
 
-name: fresource
+name: Build & Test
 
 on:
   push:
