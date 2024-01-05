@@ -2,12 +2,12 @@
   <h1>f·resource</h1>
   <!-- Test Coverage -->
   <a href="https://codecov.io/github/dbtek/fresource">
-    <img src="https://img.shields.io/codecov/c/github/dbtek/fresource/master.svg?style=flat-square"
+    <img src="https://img.shields.io/codecov/c/github/dbtek/fresource/master.svg?style=for-the-badge"
       alt="Test Coverage" />
   </a>
   <!-- Standard -->
   <a href="https://standardjs.com">
-    <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square"
+    <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=for-the-badge&logo=javascript"
       alt="Standard" />
   </a>
 </div>
