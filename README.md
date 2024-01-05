@@ -61,6 +61,10 @@ Returns promise.
 Sends a `PUT` request with given parameters. Residual parameters that are not used in url will be posted in body.  
 Returns promise.
 
+**Collection.patch(params)**
+Sends a `PATCH` request with given parameters. Residual parameters that are not used in url will be posted in body.  
+Returns promise.
+
 **Collection.delete(params)**  
 Sends a `DELETE` request with given parameters.  
 Returns promise.
