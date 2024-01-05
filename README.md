@@ -2,7 +2,7 @@
   <h1>f·resource</h1>
   <!-- Test Coverage -->
   <a href="https://codecov.io/github/dbtek/fresource">
-    <img src="https://img.shields.io/codecov/c/github/dbtek/fresource/master.svg?style=for-the-badge"
+    <img src="https://img.shields.io/codecov/c/github/dbtek/fresource/main.svg?style=for-the-badge"
       alt="Test Coverage" />
   </a>
   <!-- Standard -->
